@@ -7,6 +7,7 @@
 - new event 'form:submit.parsley' fired before a form is submitted.
 - remote cache now cleared after form submission (#813)
 - event 'field:reset.parsley' now fired if a field is no longer validated (because it is excluded, or removed) (#841)
+- pattern validator is now anchored, unless it looks like /pattern/flag (#xxx)
 
 ## 2.1.0-rc1
 

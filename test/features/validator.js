@@ -112,6 +112,14 @@ define(function () {
         expect(parsleyValidator.validate('a', parsleyValidator.validators.pattern('/[a-z]+/i'))).to.be(true);
         expect(parsleyValidator.validate('A', parsleyValidator.validators.pattern('/[a-z]+/i'))).to.be(true);
       });
+      it('should have a pattern validator that behaves as the standard when not of the form /pattern/flag', function () {
+        expect(parsleyValidator.validate('aa', parsleyValidator.validators.pattern('[a-z]{1,2}'))).to.be(true);
+        expect(parsleyValidator.validate('aaa', parsleyValidator.validators.pattern('[a-z]{1,2}'))).not.to.be(true);
+        expect(parsleyValidator.validate('aa', parsleyValidator.validators.pattern('^[a-z]{2}$'))).to.be(true);
+      });
+      it('should have a pattern validator that extends the standard for form /pattern/flag', function () {
+        expect(parsleyValidator.validate('zAz', parsleyValidator.validators.pattern('/a/i'))).to.be(true);
+      });
       it('should have a length validator', function () {
         expect(parsleyValidator.validate('foobar', parsleyValidator.validators.length([3, 9]))).to.be(true);
         expect(parsleyValidator.validate('foo', parsleyValidator.validators.length([4, 9]))).not.to.be(true);
