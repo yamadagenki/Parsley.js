@@ -1,7 +1,7 @@
 /*!
 * Parsleyjs
 * Guillaume Potier - <guillaume@wisembly.com>
-* Version 2.1.3 - built Wed Jul 29 2015 08:27:00
+* Version 2.1.3 - built Fri Aug 07 2015 17:44:05
 * MIT Licensed
 *
 */
@@ -1314,7 +1314,8 @@ var Validator = ( function ( ) {
       }
       if (null === formInstance._focusedField)
         return null;
-      return formInstance._focusedField.focus();
+      var top = formInstance._focusedField.focus();
+      return $('head,body').animate({scrollTop: top},"300");
     },
     _getErrorMessage: function (fieldInstance, constraint) {
       var customConstraintErrorMessage = constraint.name + 'Message';

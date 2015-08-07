@@ -168,7 +168,8 @@ define('parsley/ui', [
       if (null === formInstance._focusedField)
         return null;
 
-      return formInstance._focusedField.focus();
+      var top = formInstance._focusedField.focus();
+      return $('head,body').animate({scrollTop: top},"300");
     },
 
     _getErrorMessage: function (fieldInstance, constraint) {
